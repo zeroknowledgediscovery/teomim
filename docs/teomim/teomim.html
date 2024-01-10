@@ -109,7 +109,7 @@ def evaluate__(df, code_prefixes, suffix=None, age_prefix=&#39;&#39;):
 
     return num_valid_rows / df.index.size
 
-class phantompatient:
+class teomim:
     def __init__(self, modelpath, gz=True, alpha=1.3,
                  outfile=None, steps=200000,
                  numworkers=11,
@@ -314,8 +314,8 @@ class phantompatient:
 <section>
 <h2 class="section-title" id="header-classes">Classes</h2>
 <dl>
-<dt id="teomim.teomim.phantompatient"><code class="flex name class">
-<span>class <span class="ident">phantompatient</span></span>
+<dt id="teomim.teomim.teomim"><code class="flex name class">
+<span>class <span class="ident">teomim</span></span>
 <span>(</span><span>modelpath, gz=True, alpha=1.3, outfile=None, steps=200000, numworkers=11, num_patients=1000, seed=None)</span>
 </code></dt>
 <dd>
@@ -324,7 +324,7 @@ class phantompatient:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">class phantompatient:
+<pre><code class="python">class teomim:
     def __init__(self, modelpath, gz=True, alpha=1.3,
                  outfile=None, steps=200000,
                  numworkers=11,
@@ -407,7 +407,7 @@ class phantompatient:
 </details>
 <h3>Methods</h3>
 <dl>
-<dt id="teomim.teomim.phantompatient.evaluate"><code class="name flex">
+<dt id="teomim.teomim.teomim.evaluate"><code class="name flex">
 <span>def <span class="ident">evaluate</span></span>(<span>self, EVAL=None)</span>
 </code></dt>
 <dd>
@@ -440,7 +440,7 @@ class phantompatient:
     return self.evaldf.copy()</code></pre>
 </details>
 </dd>
-<dt id="teomim.teomim.phantompatient.generate"><code class="name flex">
+<dt id="teomim.teomim.teomim.generate"><code class="name flex">
 <span>def <span class="ident">generate</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -459,7 +459,7 @@ class phantompatient:
                    num_patients=self.num_patients)</code></pre>
 </details>
 </dd>
-<dt id="teomim.teomim.phantompatient.load"><code class="name flex">
+<dt id="teomim.teomim.teomim.load"><code class="name flex">
 <span>def <span class="ident">load</span></span>(<span>self, patientdata)</span>
 </code></dt>
 <dd>
@@ -472,7 +472,7 @@ class phantompatient:
     self.patients = pd.read_csv(patientdata)</code></pre>
 </details>
 </dd>
-<dt id="teomim.teomim.phantompatient.quality"><code class="name flex">
+<dt id="teomim.teomim.teomim.quality"><code class="name flex">
 <span>def <span class="ident">quality</span></span>(<span>self, df=None)</span>
 </code></dt>
 <dd>
@@ -504,7 +504,7 @@ class phantompatient:
     return np.round(b_coeff,2)</code></pre>
 </details>
 </dd>
-<dt id="teomim.teomim.phantompatient.set_model"><code class="name flex">
+<dt id="teomim.teomim.teomim.set_model"><code class="name flex">
 <span>def <span class="ident">set_model</span></span>(<span>self)</span>
 </code></dt>
 <dd>
@@ -547,13 +547,13 @@ class phantompatient:
 <li><h3><a href="#header-classes">Classes</a></h3>
 <ul>
 <li>
-<h4><code><a title="teomim.teomim.phantompatient" href="#teomim.teomim.phantompatient">phantompatient</a></code></h4>
+<h4><code><a title="teomim.teomim.teomim" href="#teomim.teomim.teomim">teomim</a></code></h4>
 <ul class="">
-<li><code><a title="teomim.teomim.phantompatient.evaluate" href="#teomim.teomim.phantompatient.evaluate">evaluate</a></code></li>
-<li><code><a title="teomim.teomim.phantompatient.generate" href="#teomim.teomim.phantompatient.generate">generate</a></code></li>
-<li><code><a title="teomim.teomim.phantompatient.load" href="#teomim.teomim.phantompatient.load">load</a></code></li>
-<li><code><a title="teomim.teomim.phantompatient.quality" href="#teomim.teomim.phantompatient.quality">quality</a></code></li>
-<li><code><a title="teomim.teomim.phantompatient.set_model" href="#teomim.teomim.phantompatient.set_model">set_model</a></code></li>
+<li><code><a title="teomim.teomim.teomim.evaluate" href="#teomim.teomim.teomim.evaluate">evaluate</a></code></li>
+<li><code><a title="teomim.teomim.teomim.generate" href="#teomim.teomim.teomim.generate">generate</a></code></li>
+<li><code><a title="teomim.teomim.teomim.load" href="#teomim.teomim.teomim.load">load</a></code></li>
+<li><code><a title="teomim.teomim.teomim.quality" href="#teomim.teomim.teomim.quality">quality</a></code></li>
+<li><code><a title="teomim.teomim.teomim.set_model" href="#teomim.teomim.teomim.set_model">set_model</a></code></li>
 </ul>
 </li>
 </ul>
