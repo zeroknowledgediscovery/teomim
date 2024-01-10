@@ -1,18 +1,16 @@
 """                                                                                                                        
-# zedstat                                                                                                                   
+# teomim                                                                                                                   
                                                                                                                            
 Description:                                                                                                               
-    Utilities for uncertainty quantification and deployment of ML models                                                                  
+    Digital twin for human disease risk. Generate realistic diagnostic histories for ptients nearly indistinguishable from real population using deep comorbidity signatures.                                                                  
                                                                                                                            
 ---                                                                                                                        
                                                                                                                            
 Installation:                                                                                                              
    ```                                                                                                                     
-      pip install zedstat                                                                                                   
+      pip install teomim                                                                                                   
    ```                                                                                                                                                                                                      
 Notes:                                                                                                                     
-   Useful for calculation of likelihood ratios, confidence intervals on AUC,
-   simple performance interpretation (list to be expanded)
-
+   Models are contextual
 
 """
