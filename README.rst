@@ -2,7 +2,7 @@
 zedstat
 ===============
 
-.. image:: https://zed.uchicago.edu/logo/logo_zedstat.png
+.. image:: https://paraknowledge.ai/logo/teomimlogo.png
    :height: 150px
    :align: center 
 
@@ -11,10 +11,10 @@ zedstat
 
 .. class:: no-web no-pdf
 
-:Author: ZeD@UChicago <zed.uchicago.edu>
-:Description: Tools for ML statistics 
-:Documentation: https://zeroknowledgediscovery.github.io/zedstat/
-:Example: https://github.com/zeroknowledgediscovery/zedstat/blob/master/examples/example1.ipynb
+:Author: Paraknowledge Corp <research.paraknowledge.ai>
+:Description: Digital twin for generating medical histories 
+:Documentation: https://zeroknowledgediscovery.github.io/teomim/
+:Example: https://github.com/zeroknowledgediscovery/zedstat/blob/master/examples/example.ipynb
 		
 **Usage:**
 
