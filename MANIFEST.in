@@ -1,0 +1,4 @@
+include version.py
+recursive-include teomim/examples *.py *.ipynb *.sh
+recursive-include teomim/bin *.so
+recursive-include teomim *.ipynb *.joblib *.c *.so *.pyx

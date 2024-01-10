@@ -1,0 +1,7 @@
+from quasinet.qnet import load_qnet
+
+OUTDIR='trees/'
+modelpath='twin_models/FULL_QNET.joblib'
+model=load_qnet(modelpath,gz=False)
+
+model.viz_trees(tree_path=OUTDIR,big_enough_threshold=1,format='png')
