@@ -80,7 +80,7 @@ def evaluate__(df, code_prefixes, suffix=None, age_prefix=''):
 
     return num_valid_rows / df.index.size
 
-class phantompatient:
+class teomim:
     def __init__(self, modelpath, gz=True, alpha=1.3,
                  outfile=None, steps=200000,
                  numworkers=11,
