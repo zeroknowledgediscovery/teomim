@@ -14,7 +14,7 @@ zedstat
 :Author: Paraknowledge Corp <research.paraknowledge.ai>
 :Description: Digital twin for generating medical histories 
 :Documentation: https://zeroknowledgediscovery.github.io/teomim/
-:Example: https://github.com/zeroknowledgediscovery/teomim/blob/master/examples/example.ipynb
+:Example: https://github.com/zeroknowledgediscovery/teomim/blob/main/examples/example.ipynb
 		
 **Usage:**
 
