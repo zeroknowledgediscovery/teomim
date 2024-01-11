@@ -6,6 +6,7 @@ from tqdm import tqdm
 from concurrent.futures import ProcessPoolExecutor
 import argparse
 from scipy.spatial.distance import cosine
+import pkg_resources
 
 def bhattacharyya_coefficient(pmf1, pmf2):
     return np.sum(np.sqrt((np.array(pmf1) * np.array(pmf2)).astype(float)))
@@ -73,7 +74,7 @@ def evaluate__(df, code_prefixes, suffix=None, age_prefix=''):
     return num_valid_rows / df.index.size
 
 class teomim:
-    def __init__(self, modelpath, gz=True, alpha=1.3,
+    def __init__(self, modelpath=None, gz=True, alpha=1.3,
                  outfile=None, steps=200000,
                  numworkers=11,
                  num_patients=1000,seed=None):
@@ -89,6 +90,17 @@ class teomim:
         self.EVAL_PREFIXES={'I10':.7,'I25':.4,'I50':.25,'E11':.46,
                             'E66':.3,'I63':.4,'G20':.15,'F32':.5,
                             'F41':.4,'M81':.25,'J44':.55,'J84':0.005}
+
+        self.asset_path = pkg_resources.resource_filename('teomim', 'assets/')
+
+    def set_model(specifier,path=None,gz=None):
+        if gz:
+            self.gz = gz
+        if not path:
+            self.modelpath = glob.glob(self.asset_path+'/*'+specifier+'*')[0]
+        else:
+            self.modelpath = specifier
+        return self.modelpath
         
     def load(self,patientdata):
         self.patients = pd.read_csv(patientdata)
