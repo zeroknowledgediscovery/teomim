@@ -21,7 +21,7 @@ zedstat
 .. code-block::
 
    from teomim import teomim
-   P=teomim(gz=False,outfile='out100.csv',num_patients=500)
+   P=teomim(outfile='out100.csv',num_patients=500)
    P.set_modelpath('adrd')
    P.generate()
    P.evaluate()

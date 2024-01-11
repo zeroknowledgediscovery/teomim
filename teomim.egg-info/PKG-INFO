@@ -1,12 +1,12 @@
 Metadata-Version: 2.1
 Name: teomim
-Version: 0.0.153
+Version: 0.0.154
 Summary: Digital twin for generating and analyzing medical histories with deep comorbidity structures
 Home-page: https://github.com/zeroknowledgediscovery/teomim
 Author: paraknowledge corp
 Author-email: research@paraknowledge.ai
 License: LICENSE
-Download-URL: https://github.com/zeroknowledgediscovery/teomim/archive/0.0.153.tar.gz
+Download-URL: https://github.com/zeroknowledgediscovery/teomim/archive/0.0.154.tar.gz
 Keywords: machine learning,statistics
 Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
@@ -43,7 +43,7 @@ zedstat
 .. code-block::
 
    from teomim import teomim
-   P=teomim(gz=False,outfile='out100.csv',num_patients=500)
+   P=teomim(outfile='out100.csv',num_patients=500)
    P.set_modelpath('adrd')
    P.generate()
    P.evaluate()
