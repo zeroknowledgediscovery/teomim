@@ -122,7 +122,7 @@ class teomim:
 
         self.asset_path = pkg_resources.resource_filename(&#39;teomim&#39;, &#39;assets/&#39;)
 
-    def set_modelpath(specifier,path=None,gz=None):
+    def set_modelpath(self,specifier,path=None,gz=None):
         if gz:
             self.gz = gz
         if not path:
@@ -348,7 +348,7 @@ class teomim:
 
         self.asset_path = pkg_resources.resource_filename(&#39;teomim&#39;, &#39;assets/&#39;)
 
-    def set_modelpath(specifier,path=None,gz=None):
+    def set_modelpath(self,specifier,path=None,gz=None):
         if gz:
             self.gz = gz
         if not path:
@@ -534,7 +534,7 @@ class teomim:
 </details>
 </dd>
 <dt id="teomim.teomim.teomim.set_modelpath"><code class="name flex">
-<span>def <span class="ident">set_modelpath</span></span>(<span>specifier, path=None, gz=None)</span>
+<span>def <span class="ident">set_modelpath</span></span>(<span>self, specifier, path=None, gz=None)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -542,7 +542,7 @@ class teomim:
 <summary>
 <span>Expand source code</span>
 </summary>
-<pre><code class="python">def set_modelpath(specifier,path=None,gz=None):
+<pre><code class="python">def set_modelpath(self,specifier,path=None,gz=None):
     if gz:
         self.gz = gz
     if not path:
