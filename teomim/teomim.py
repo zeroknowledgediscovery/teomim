@@ -93,7 +93,7 @@ class teomim:
 
         self.asset_path = pkg_resources.resource_filename('teomim', 'assets/')
 
-    def set_model(specifier,path=None,gz=None):
+    def set_modelpath(specifier,path=None,gz=None):
         if gz:
             self.gz = gz
         if not path:

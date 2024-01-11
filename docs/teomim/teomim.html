@@ -122,7 +122,7 @@ class teomim:
 
         self.asset_path = pkg_resources.resource_filename(&#39;teomim&#39;, &#39;assets/&#39;)
 
-    def set_model(specifier,path=None,gz=None):
+    def set_modelpath(specifier,path=None,gz=None):
         if gz:
             self.gz = gz
         if not path:
@@ -348,7 +348,7 @@ class teomim:
 
         self.asset_path = pkg_resources.resource_filename(&#39;teomim&#39;, &#39;assets/&#39;)
 
-    def set_model(specifier,path=None,gz=None):
+    def set_modelpath(specifier,path=None,gz=None):
         if gz:
             self.gz = gz
         if not path:
@@ -533,6 +533,25 @@ class teomim:
     self.featurenames = np.array(self.model.feature_names)</code></pre>
 </details>
 </dd>
+<dt id="teomim.teomim.teomim.set_modelpath"><code class="name flex">
+<span>def <span class="ident">set_modelpath</span></span>(<span>specifier, path=None, gz=None)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def set_modelpath(specifier,path=None,gz=None):
+    if gz:
+        self.gz = gz
+    if not path:
+        self.modelpath = glob.glob(self.asset_path+&#39;/*&#39;+specifier+&#39;*&#39;)[0]
+    else:
+        self.modelpath = specifier
+    return self.modelpath</code></pre>
+</details>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -563,12 +582,13 @@ class teomim:
 <ul>
 <li>
 <h4><code><a title="teomim.teomim.teomim" href="#teomim.teomim.teomim">teomim</a></code></h4>
-<ul class="">
+<ul class="two-column">
 <li><code><a title="teomim.teomim.teomim.evaluate" href="#teomim.teomim.teomim.evaluate">evaluate</a></code></li>
 <li><code><a title="teomim.teomim.teomim.generate" href="#teomim.teomim.teomim.generate">generate</a></code></li>
 <li><code><a title="teomim.teomim.teomim.load" href="#teomim.teomim.teomim.load">load</a></code></li>
 <li><code><a title="teomim.teomim.teomim.quality" href="#teomim.teomim.teomim.quality">quality</a></code></li>
 <li><code><a title="teomim.teomim.teomim.set_model" href="#teomim.teomim.teomim.set_model">set_model</a></code></li>
+<li><code><a title="teomim.teomim.teomim.set_modelpath" href="#teomim.teomim.teomim.set_modelpath">set_modelpath</a></code></li>
 </ul>
 </li>
 </ul>
