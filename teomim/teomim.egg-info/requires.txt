@@ -1,6 +1,0 @@
-scikit-learn
-scipy
-numpy
-pandas
-quasinet
-scipy
