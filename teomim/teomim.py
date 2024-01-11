@@ -101,7 +101,7 @@ class teomim:
             self.modelpath = glob.glob(self.asset_path+'/*'+specifier+'*')[0]
         else:
             self.modelpath = specifier
-        return self.modelpath
+        return 
         
     def load(self,patientdata):
         self.patients = pd.read_csv(patientdata)

@@ -21,8 +21,8 @@ zedstat
 .. code-block::
 
    from teomim import teomim
-   P=teomim(modelpath='./twin_models/FULL_QNET.joblib',
-                   gz=False,outfile='out100.csv',num_patients=500)
+   P=teomim(gz=False,outfile='out100.csv',num_patients=500)
+   P.set_modelpath('adrd')
    P.generate()
    P.evaluate()
    P.quality()
