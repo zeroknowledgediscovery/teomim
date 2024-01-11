@@ -1,0 +1,4 @@
+include version.py
+recursive-include teomim/assets teomim/examples *.py *.ipynb *.sh *.gz *.pkl
+recursive-include teomim/bin *.so
+recursive-include teomim *.ipynb *.joblib *.c *.so *.pyx *.gz *.pkl

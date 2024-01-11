@@ -1,0 +1,53 @@
+Metadata-Version: 2.1
+Name: teomim
+Version: 0.0.145
+Summary: Digital twin for generating and analyzing medical histories with deep comorbidity structures
+Home-page: https://github.com/zeroknowledgediscovery/teomim
+Author: paraknowledge corp
+Author-email: research@paraknowledge.ai
+License: LICENSE
+Download-URL: https://github.com/zeroknowledgediscovery/teomim/archive/0.0.145.tar.gz
+Keywords: machine learning,statistics
+Platform: UNKNOWN
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Developers
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Information Analysis
+Classifier: Topic :: Software Development :: Libraries
+Classifier: License :: OSI Approved :: MIT License
+Classifier: Programming Language :: Python :: 3.7
+Requires-Python: >=3.7
+Description-Content-Type: text/x-rst
+License-File: LICENSE
+
+===============
+zedstat
+===============
+
+.. image:: https://paraknowledge.ai/logo/teomimlogo.png
+   :height: 150px
+   :align: center 
+
+.. image:: https://zenodo.org/badge/529991779.svg
+   :target: https://zenodo.org/badge/latestdoi/529991779
+
+.. class:: no-web no-pdf
+
+:Author: Paraknowledge Corp <research.paraknowledge.ai>
+:Description: Digital twin for generating medical histories 
+:Documentation: https://zeroknowledgediscovery.github.io/teomim/
+:Example: https://github.com/zeroknowledgediscovery/teomim/blob/main/examples/example.ipynb
+		
+**Usage:**
+
+.. code-block::
+
+   from teomim import teomim
+   P=teomim(modelpath='./twin_models/FULL_QNET.joblib',
+                   gz=False,outfile='out100.csv',num_patients=500)
+   P.generate()
+   P.evaluate()
+   P.quality()
+
+
+

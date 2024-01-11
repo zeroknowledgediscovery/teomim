@@ -3,7 +3,7 @@ from codecs import open
 from os import path
 import warnings
 
-package_name = 'zedstat'
+package_name = 'teomim'
 example_dir = 'examples/'
 bin_dir = 'bin/'
 example_data_dir = example_dir + 'examples_data/'
@@ -21,18 +21,19 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name=package_name,
-    author='zed.uchicago.edu',
-    author_email='ishanu@uchicago.edu',
+    author='paraknowledge corp',
+    author_email='research@paraknowledge.ai',
     version = str(version['__version__']),
     packages=find_packages(),
+    package_data={'teomim': ['assets/*']},
     scripts=[],
-    url='https://github.com/zeroknowledgediscovery/zedstat',
+    url='https://github.com/zeroknowledgediscovery/teomim',
     license='LICENSE',
-    description='Statistics tools for ML models and deployment',
+    description='Digital twin for generating and analyzing medical histories with deep comorbidity structures',
     keywords=[
         'machine learning', 
         'statistics'],
-    download_url='https://github.com/zeroknowledgediscovery/zedstat/archive/'+str(version['__version__'])+'.tar.gz',
+    download_url='https://github.com/zeroknowledgediscovery/teomim/archive/'+str(version['__version__'])+'.tar.gz',
     long_description=long_description,
     long_description_content_type='text/x-rst',
     install_requires=[
@@ -40,8 +41,9 @@ setup(
         "scipy", 
         "numpy",  
         "pandas",
+        "quasinet",
         "scipy"],
-    python_requires='>=3.6',
+    python_requires='>=3.7',
     classifiers=[
         'Development Status :: 4 - Beta',
         "Intended Audience :: Developers",
@@ -49,6 +51,6 @@ setup(
         "Topic :: Scientific/Engineering :: Information Analysis",
         "Topic :: Software Development :: Libraries",
         "License :: OSI Approved :: MIT License",
-        "Programming Language :: Python :: 3.6"],
+        "Programming Language :: Python :: 3.7"],
     include_package_data=True,
     )
