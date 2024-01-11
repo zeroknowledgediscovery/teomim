@@ -11,3 +11,4 @@ teomim.egg-info/SOURCES.txt
 teomim.egg-info/dependency_links.txt
 teomim.egg-info/requires.txt
 teomim.egg-info/top_level.txt
+teomim/assets/adrd_5K_01.pkl.gz
