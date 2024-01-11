@@ -1,6 +1,3 @@
-from .teomim import teomim
-
-
 """                                                                                                                        
 # teomim                                                                                                                   
                                                                                                                            
@@ -17,3 +14,7 @@ Notes:
    Models are contextual
 
 """
+
+
+from .teomim import teomim
+
