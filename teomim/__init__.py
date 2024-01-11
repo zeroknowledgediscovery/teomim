@@ -1,3 +1,6 @@
+from .teomim import teomim
+
+
 """                                                                                                                        
 # teomim                                                                                                                   
                                                                                                                            
