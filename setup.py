@@ -25,6 +25,7 @@ setup(
     author_email='research@paraknowledge.ai',
     version = str(version['__version__']),
     packages=find_packages(),
+    package_data={'teomim': ['assets/*']},
     scripts=[],
     url='https://github.com/zeroknowledgediscovery/teomim',
     license='LICENSE',
