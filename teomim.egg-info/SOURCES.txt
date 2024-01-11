@@ -1,0 +1,13 @@
+LICENSE
+MANIFEST.in
+README.rst
+setup.py
+version.py
+teomim/__init__.py
+teomim/teomim.py
+teomim/viz.py
+teomim.egg-info/PKG-INFO
+teomim.egg-info/SOURCES.txt
+teomim.egg-info/dependency_links.txt
+teomim.egg-info/requires.txt
+teomim.egg-info/top_level.txt
