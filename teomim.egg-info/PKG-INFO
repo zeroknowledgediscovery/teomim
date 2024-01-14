@@ -3,12 +3,11 @@ Name: teomim
 Version: 0.0.156
 Summary: Digital twin for generating and analyzing medical histories with deep comorbidity structures
 Home-page: https://github.com/zeroknowledgediscovery/teomim
+Download-URL: https://github.com/zeroknowledgediscovery/teomim/archive/0.0.156.tar.gz
 Author: paraknowledge corp
 Author-email: research@paraknowledge.ai
 License: LICENSE
-Download-URL: https://github.com/zeroknowledgediscovery/teomim/archive/0.0.156.tar.gz
 Keywords: machine learning,statistics
-Platform: UNKNOWN
 Classifier: Development Status :: 4 - Beta
 Classifier: Intended Audience :: Developers
 Classifier: Intended Audience :: Science/Research
@@ -48,6 +47,4 @@ zedstat
    P.generate()
    P.evaluate()
    P.quality()
-
-
 
