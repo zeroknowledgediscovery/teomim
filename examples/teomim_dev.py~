@@ -41,6 +41,10 @@ def init_globals(model, steps, alpha):
     global_alpha = alpha
 
 def parallel_qsample(seed):
+    return qsample(seed, global_model,
+                   steps=global_steps, alpha=global_alpha)
+
+def parallel_qsample_(seed):
     
     return qsample(seed, global_model,
                    steps=global_steps, alpha=select_key_by_probability(global_alpha))
@@ -65,6 +69,29 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
     if outfile:
         Sf.to_csv(outfile)
     return Sf,model,featurenames
+
+
+def generate_dist(modelpath, gz=True, alpha={1.3:1}, outfile=None,
+             steps=200000, numworkers=11, num_patients=1000):
+    model = load_qnet(modelpath, gz=gz)
+    featurenames = np.array(model.feature_names)
+    seed = np.array([''] * len(featurenames)).astype('U100')
+
+    # Initialize global variables
+    init_globals(model, steps, alpha)
+
+    with ProcessPoolExecutor(max_workers=numworkers,
+                             initializer=init_globals,
+                             initargs=(model, steps, alpha)) as executor:
+        seeds = [seed for _ in range(num_patients)]
+        results = list(tqdm(executor.map(parallel_qsample_, seeds),
+                            total=num_patients))
+
+    Sf = pd.DataFrame(results, columns=featurenames)
+    if outfile:
+        Sf.to_csv(outfile)
+    return Sf,model,featurenames
+
 
 
 def evaluate__(df, code_prefixes, suffix=None, age_prefix=''):
