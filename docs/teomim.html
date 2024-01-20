@@ -69,16 +69,31 @@ def init_globals(model, steps, alpha):
     global_steps = steps
     global_alpha = alpha
 
+def select_random_row(arr):
+    if arr.shape[0] == 1:
+        # Only one row
+        return arr[0]
+    else:
+        # Multiple rows, select one randomly
+        random_index = np.random.randint(arr.shape[0])
+        return arr[random_index]
+
+
 def parallel_qsample(seed):
     
     return qsample(seed, global_model,
                    steps=global_steps, alpha=select_key_by_probability(global_alpha))
 
 def generate(modelpath, gz=True, alpha=1.3, outfile=None,
-             steps=200000, numworkers=11, num_patients=1000):
+             steps=200000, numworkers=11, num_patients=1000,
+             seed=None):
     model = load_qnet(modelpath, gz=gz)
     featurenames = np.array(model.feature_names)
-    seed = np.array([&#39;&#39;] * len(featurenames)).astype(&#39;U100&#39;)
+    if not seed:
+        seed = np.array([&#39;&#39;] * len(featurenames)).astype(&#39;U100&#39;)
+    else:
+        seed = select_random_row(seed)
+        
 
     # Initialize global variables
     init_globals(model, steps, alpha)
@@ -159,6 +174,7 @@ class teomim:
                        gz=self.gz, alpha=self.alpha,
                        outfile=self.outfile,
                        steps=self.steps,
+                       seed=self.seed,
                        numworkers=self.numworkers,
                        num_patients=self.num_patients)
 
@@ -272,7 +288,7 @@ class teomim:
 </details>
 </dd>
 <dt id="teomim.teomim.generate"><code class="name flex">
-<span>def <span class="ident">generate</span></span>(<span>modelpath, gz=True, alpha=1.3, outfile=None, steps=200000, numworkers=11, num_patients=1000)</span>
+<span>def <span class="ident">generate</span></span>(<span>modelpath, gz=True, alpha=1.3, outfile=None, steps=200000, numworkers=11, num_patients=1000, seed=None)</span>
 </code></dt>
 <dd>
 <div class="desc"></div>
@@ -281,10 +297,15 @@ class teomim:
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def generate(modelpath, gz=True, alpha=1.3, outfile=None,
-             steps=200000, numworkers=11, num_patients=1000):
+             steps=200000, numworkers=11, num_patients=1000,
+             seed=None):
     model = load_qnet(modelpath, gz=gz)
     featurenames = np.array(model.feature_names)
-    seed = np.array([&#39;&#39;] * len(featurenames)).astype(&#39;U100&#39;)
+    if not seed:
+        seed = np.array([&#39;&#39;] * len(featurenames)).astype(&#39;U100&#39;)
+    else:
+        seed = select_random_row(seed)
+        
 
     # Initialize global variables
     init_globals(model, steps, alpha)
@@ -356,6 +377,25 @@ and the values are the probabilities of each key.</p></div>
     return random.choices(list(normalized_probs.keys()), weights=normalized_probs.values(), k=1)[0]</code></pre>
 </details>
 </dd>
+<dt id="teomim.teomim.select_random_row"><code class="name flex">
+<span>def <span class="ident">select_random_row</span></span>(<span>arr)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def select_random_row(arr):
+    if arr.shape[0] == 1:
+        # Only one row
+        return arr[0]
+    else:
+        # Multiple rows, select one randomly
+        random_index = np.random.randint(arr.shape[0])
+        return arr[random_index]</code></pre>
+</details>
+</dd>
 </dl>
 </section>
 <section>
@@ -409,6 +449,7 @@ and the values are the probabilities of each key.</p></div>
                        gz=self.gz, alpha=self.alpha,
                        outfile=self.outfile,
                        steps=self.steps,
+                       seed=self.seed,
                        numworkers=self.numworkers,
                        num_patients=self.num_patients)
 
@@ -513,6 +554,7 @@ and the values are the probabilities of each key.</p></div>
                    gz=self.gz, alpha=self.alpha,
                    outfile=self.outfile,
                    steps=self.steps,
+                   seed=self.seed,
                    numworkers=self.numworkers,
                    num_patients=self.num_patients)</code></pre>
 </details>
@@ -620,6 +662,7 @@ and the values are the probabilities of each key.</p></div>
 <li><code><a title="teomim.teomim.init_globals" href="#teomim.teomim.init_globals">init_globals</a></code></li>
 <li><code><a title="teomim.teomim.parallel_qsample" href="#teomim.teomim.parallel_qsample">parallel_qsample</a></code></li>
 <li><code><a title="teomim.teomim.select_key_by_probability" href="#teomim.teomim.select_key_by_probability">select_key_by_probability</a></code></li>
+<li><code><a title="teomim.teomim.select_random_row" href="#teomim.teomim.select_random_row">select_random_row</a></code></li>
 </ul>
 </li>
 <li><h3><a href="#header-classes">Classes</a></h3>

@@ -40,16 +40,31 @@ def init_globals(model, steps, alpha):
     global_steps = steps
     global_alpha = alpha
 
+def select_random_row(arr):
+    if arr.shape[0] == 1:
+        # Only one row
+        return arr[0]
+    else:
+        # Multiple rows, select one randomly
+        random_index = np.random.randint(arr.shape[0])
+        return arr[random_index]
+
+
 def parallel_qsample(seed):
     
     return qsample(seed, global_model,
                    steps=global_steps, alpha=select_key_by_probability(global_alpha))
 
 def generate(modelpath, gz=True, alpha=1.3, outfile=None,
-             steps=200000, numworkers=11, num_patients=1000):
+             steps=200000, numworkers=11, num_patients=1000,
+             seed=None):
     model = load_qnet(modelpath, gz=gz)
     featurenames = np.array(model.feature_names)
-    seed = np.array([''] * len(featurenames)).astype('U100')
+    if not seed:
+        seed = np.array([''] * len(featurenames)).astype('U100')
+    else:
+        seed = select_random_row(seed)
+        
 
     # Initialize global variables
     init_globals(model, steps, alpha)
@@ -130,6 +145,7 @@ class teomim:
                        gz=self.gz, alpha=self.alpha,
                        outfile=self.outfile,
                        steps=self.steps,
+                       seed=self.seed,
                        numworkers=self.numworkers,
                        num_patients=self.num_patients)
 
