@@ -63,8 +63,10 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
     if not seed:
         seed = np.array([''] * len(featurenames)).astype('U100')
         seeds = [seed for _ in range(num_patients)]
+        seed_used='EMPTY STR'
     else:
         seeds = [select_random_row(seed) for _ in range(num_patients)]
+        seed_used = 'DATAFRAME'
         
 
     # Initialize global variables
@@ -73,14 +75,13 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
     with ProcessPoolExecutor(max_workers=numworkers,
                              initializer=init_globals,
                              initargs=(model, steps, alpha)) as executor:
-        seeds = [seed for _ in range(num_patients)]
         results = list(tqdm(executor.map(parallel_qsample, seeds),
                             total=num_patients))
 
     Sf = pd.DataFrame(results, columns=featurenames)
     if outfile:
         Sf.to_csv(outfile)
-    return Sf,model,featurenames
+    return Sf,seed_used
 
 
 def evaluate__(df, code_prefixes, suffix=None, age_prefix=''):
@@ -122,6 +123,7 @@ class teomim:
         self.num_patients = num_patients
         self.seed = None
         self.patients = None
+        self.seed_used = None
         self.EVAL_PREFIXES={'I10':.7,'I25':.4,'I50':.25,'E11':.46,
                             'E66':.3,'I63':.4,'G20':.15,'F32':.5,
                             'F41':.4,'M81':.25,'J44':.55,'J84':0.005}
@@ -141,7 +143,7 @@ class teomim:
         self.patients = pd.read_csv(patientdata)
         
     def generate(self):
-        self.patients,self.model,self.featurenames\
+        self.patients,self.seed_used\
             = generate(modelpath=self.modelpath,
                        gz=self.gz, alpha=self.alpha,
                        outfile=self.outfile,

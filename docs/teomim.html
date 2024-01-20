@@ -92,8 +92,10 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
     if not seed:
         seed = np.array([&#39;&#39;] * len(featurenames)).astype(&#39;U100&#39;)
         seeds = [seed for _ in range(num_patients)]
+        seed_used=&#39;EMPTY STR&#39;
     else:
         seeds = [select_random_row(seed) for _ in range(num_patients)]
+        seed_used = &#39;DATAFRAME&#39;
         
 
     # Initialize global variables
@@ -102,14 +104,13 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
     with ProcessPoolExecutor(max_workers=numworkers,
                              initializer=init_globals,
                              initargs=(model, steps, alpha)) as executor:
-        seeds = [seed for _ in range(num_patients)]
         results = list(tqdm(executor.map(parallel_qsample, seeds),
                             total=num_patients))
 
     Sf = pd.DataFrame(results, columns=featurenames)
     if outfile:
         Sf.to_csv(outfile)
-    return Sf,model,featurenames
+    return Sf,seed_used
 
 
 def evaluate__(df, code_prefixes, suffix=None, age_prefix=&#39;&#39;):
@@ -151,6 +152,7 @@ class teomim:
         self.num_patients = num_patients
         self.seed = None
         self.patients = None
+        self.seed_used = None
         self.EVAL_PREFIXES={&#39;I10&#39;:.7,&#39;I25&#39;:.4,&#39;I50&#39;:.25,&#39;E11&#39;:.46,
                             &#39;E66&#39;:.3,&#39;I63&#39;:.4,&#39;G20&#39;:.15,&#39;F32&#39;:.5,
                             &#39;F41&#39;:.4,&#39;M81&#39;:.25,&#39;J44&#39;:.55,&#39;J84&#39;:0.005}
@@ -170,7 +172,7 @@ class teomim:
         self.patients = pd.read_csv(patientdata)
         
     def generate(self):
-        self.patients,self.model,self.featurenames\
+        self.patients,self.seed_used\
             = generate(modelpath=self.modelpath,
                        gz=self.gz, alpha=self.alpha,
                        outfile=self.outfile,
@@ -305,8 +307,10 @@ class teomim:
     if not seed:
         seed = np.array([&#39;&#39;] * len(featurenames)).astype(&#39;U100&#39;)
         seeds = [seed for _ in range(num_patients)]
+        seed_used=&#39;EMPTY STR&#39;
     else:
         seeds = [select_random_row(seed) for _ in range(num_patients)]
+        seed_used = &#39;DATAFRAME&#39;
         
 
     # Initialize global variables
@@ -315,14 +319,13 @@ class teomim:
     with ProcessPoolExecutor(max_workers=numworkers,
                              initializer=init_globals,
                              initargs=(model, steps, alpha)) as executor:
-        seeds = [seed for _ in range(num_patients)]
         results = list(tqdm(executor.map(parallel_qsample, seeds),
                             total=num_patients))
 
     Sf = pd.DataFrame(results, columns=featurenames)
     if outfile:
         Sf.to_csv(outfile)
-    return Sf,model,featurenames</code></pre>
+    return Sf,seed_used</code></pre>
 </details>
 </dd>
 <dt id="teomim.teomim.init_globals"><code class="name flex">
@@ -427,6 +430,7 @@ and the values are the probabilities of each key.</p></div>
         self.num_patients = num_patients
         self.seed = None
         self.patients = None
+        self.seed_used = None
         self.EVAL_PREFIXES={&#39;I10&#39;:.7,&#39;I25&#39;:.4,&#39;I50&#39;:.25,&#39;E11&#39;:.46,
                             &#39;E66&#39;:.3,&#39;I63&#39;:.4,&#39;G20&#39;:.15,&#39;F32&#39;:.5,
                             &#39;F41&#39;:.4,&#39;M81&#39;:.25,&#39;J44&#39;:.55,&#39;J84&#39;:0.005}
@@ -446,7 +450,7 @@ and the values are the probabilities of each key.</p></div>
         self.patients = pd.read_csv(patientdata)
         
     def generate(self):
-        self.patients,self.model,self.featurenames\
+        self.patients,self.seed_used\
             = generate(modelpath=self.modelpath,
                        gz=self.gz, alpha=self.alpha,
                        outfile=self.outfile,
@@ -551,7 +555,7 @@ and the values are the probabilities of each key.</p></div>
 <span>Expand source code</span>
 </summary>
 <pre><code class="python">def generate(self):
-    self.patients,self.model,self.featurenames\
+    self.patients,self.seed_used\
         = generate(modelpath=self.modelpath,
                    gz=self.gz, alpha=self.alpha,
                    outfile=self.outfile,
