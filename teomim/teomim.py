@@ -62,8 +62,9 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
     featurenames = np.array(model.feature_names)
     if not seed:
         seed = np.array([''] * len(featurenames)).astype('U100')
+        seeds = [seed for _ in range(num_patients)]
     else:
-        seed = select_random_row(seed)
+        seeds = [select_random_row(seed) for _ in range(num_patients)]
         
 
     # Initialize global variables
