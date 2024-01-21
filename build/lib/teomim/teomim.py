@@ -60,7 +60,7 @@ def generate(modelpath, gz=True, alpha=1.3, outfile=None,
              seed=None):
     model = load_qnet(modelpath, gz=gz)
     featurenames = np.array(model.feature_names)
-    if not seed:
+    if seed is None:
         seed = np.array([''] * len(featurenames)).astype('U100')
         seeds = [seed for _ in range(num_patients)]
         seed_used='EMPTY STR'
@@ -121,7 +121,7 @@ class teomim:
         self.steps = steps
         self.numworkers = numworkers
         self.num_patients = num_patients
-        self.seed = None
+        self.seed = seed
         self.patients = None
         self.seed_used = None
         self.EVAL_PREFIXES={'I10':.7,'I25':.4,'I50':.25,'E11':.46,
