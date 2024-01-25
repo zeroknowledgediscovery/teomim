@@ -41,7 +41,7 @@ setup(
         "scipy", 
         "numpy",  
         "pandas",
-        "quasinet>=0.1.62",
+        "quasinet>=0.1.63",
         "scipy"],
     python_requires='>=3.7',
     classifiers=[

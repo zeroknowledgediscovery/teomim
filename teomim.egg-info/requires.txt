@@ -2,5 +2,5 @@ scikit-learn
 scipy
 numpy
 pandas
-quasinet>=0.1.62
+quasinet>=0.1.63
 scipy
