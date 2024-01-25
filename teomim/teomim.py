@@ -53,7 +53,9 @@ def select_random_row(arr):
 def parallel_qsample(seed):
     
     return qsample(seed, global_model,
-                   steps=global_steps, alpha=select_key_by_probability(global_alpha))
+                   steps=global_steps,
+                   random_seed=True,
+                   alpha=select_key_by_probability(global_alpha))
 
 def generate(modelpath, gz=True, alpha=1.3, outfile=None,
              steps=200000, numworkers=11, num_patients=1000,
