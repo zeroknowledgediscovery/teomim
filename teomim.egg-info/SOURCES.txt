@@ -4,6 +4,7 @@ README.rst
 setup.py
 version.py
 teomim/__init__.py
+teomim/io.py
 teomim/teomim.py
 teomim/viz.py
 teomim.egg-info/PKG-INFO
