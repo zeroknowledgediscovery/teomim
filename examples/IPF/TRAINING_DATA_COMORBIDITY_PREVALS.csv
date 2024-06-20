@@ -1,0 +1,11 @@
+comorbidity,pattern,prevalence_training
+COPD,J44,0.610
+Pulmonary Hypertension,I27,0.323
+Obstructive Sleep Apnea,G47,0.465
+Lung Cancer,C34,0.076
+Pulmonary Embolism,I26,0.111
+Gastro-esophageal reflux disease,K21,0.535
+Heart Failure,I50,0.375
+Ischemic Heart Disease,I25,0.533
+Diabetes Mellitus,E10|E11,0.448
+Hyperlipidemia,E78,0.696

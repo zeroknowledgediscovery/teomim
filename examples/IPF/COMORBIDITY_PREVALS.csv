@@ -1,0 +1,11 @@
+Disease,Prevalence in Literature,Prevalence in Training Set,Prevalence in Digital Twins Set
+COPD,0.510 \citep{schmidt2011pulmonary},0.61,0.608
+Pulmonary Hypertension,0.330 \citep{mathai201060},0.323,0.324
+Obstructive Sleep Apnea,0.647 \citep{lee2023prevalence},0.465,0.465
+Lung Cancer,0.070 \citep{lee2012prevalence},0.076,0.076
+Pulmonary Embolism,0.060 \citep{saydain2002outcome},0.111,0.108
+Gastro-esophageal reflux disease,0.450 \citep{lee2011gastroesophageal},0.535,0.528
+Heart Failure,0.200 \citep{collard2012burden},0.375,0.383
+Ischemic Heart Disease,0.658 \citep{nathan2010prevalence},0.533,0.535
+Diabetes Mellitus,0.240 \citep{park2010prevalence},0.448,0.461
+Hyperlipidemia,0.550 \citep{schomberg2011s134},0.696,0.685
