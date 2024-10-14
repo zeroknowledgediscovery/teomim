@@ -1,5 +1,5 @@
 ===============
-zedstat
+teomim
 ===============
 
 .. image:: https://paraknowledge.ai/logo/teomimlogo.png
